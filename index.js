@@ -2,11 +2,12 @@ const Joi = require('joi');
 Joi.objectId = require('joi-objectid')(Joi);
 const mongoose = require('mongoose');
 const users = require('./routes/users');
+const auth = require('./routes/auth');
 const express = require('express');
 const app = express();
 const url = "mongodb://35.247.16.184:27017/project2";
 
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then(() => console.log("Connected..."))
     .catch(err => console.error("Something went wrong", err));
 
@@ -16,8 +17,9 @@ app.listen(port, () => console.log(`Listening on ${port}...`));
 
 app.use(express.json());
 app.use('/users', users);
+app.use('/auth', auth);
 
-
+module.exports = app;
 
 
 // const MongoClient = require('mongodb').MongoClient;

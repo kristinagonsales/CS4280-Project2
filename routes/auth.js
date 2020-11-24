@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
         return res.status(400).send('Incorrect email or password');
     }
 
-    //validate credentials in MongoDB match those provided in request
+    //validate that credentials in MongoDB match those provided in request
     const validPassword = await bcrypt.compare(req.body.password, user.password);
     if (!validPassword) {
         return res.status(400).send('Incorrect email or password');

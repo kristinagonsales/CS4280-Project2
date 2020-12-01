@@ -1,0 +1,91 @@
+body {
+	font-family: Raleway;
+	padding-left: 70px;
+	padding-right: 70px;
+	padding-top: 5px;
+	}
+.navbar {
+	display: flex;
+}
+header p {
+	flex: 1;
+	font-size: 100%;
+	font-weight: 600;
+	color: #000000;
+}
+nav ul {
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+}
+nav li {
+	display: inline-flex;
+	margin: 15px;
+}
+nav li a {
+	font-size: 100%;
+	font-weight: 600;
+	color: #000000;
+}
+a:link, a:visited {
+	text-decoration: none;
+}
+@media (max-width: 500px) {
+	.navbar {
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+	.navbar nav ul li {
+		flex-basis: 50%;
+	}
+}
+.getStarted {
+	display: flex;
+}
+.getStarted .content {
+	margin: auto;
+	flex: 1;
+}
+.getStarted .content .OrganizeYourWay {
+	text-align: center;
+	font-size: 300%;
+	font-weight: 800;
+	color: #000000;
+}
+.getStarted .content .button {
+	font-size: 120%;
+	font-weight: 600;
+	color: white;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 35%;
+	padding-right: 35%;
+	background-color: #FFC957;
+	border: none;
+	display: inline-flex;
+	text-align: center;
+}
+.button1 {border-radius: 8px;}
+
+.getStarted .homepageImage {
+	flex: 2;
+}
+.getStarted .homepageImage img {
+	max-width: 100%;
+	height: auto;
+}
+
+@media (max-width: 870px) {
+	.getStarted {
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+	.getStarted .content {
+		flex-basis: 50%;
+		order: 1;
+	}
+
+	.getStarted .homepageImage {
+		flex-basis: 50%;
+	}
+}

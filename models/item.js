@@ -15,17 +15,24 @@ const Item = mongoose.model('Item', new mongoose.Schema({
         minlength: 5,
         maxlength: 255
     },
-    time: {
-        type: Date,
+    date: {
+        type: String,
         required: true
+    },
+    email: {
+        type: String,
+        required: true,
+        minlength: 5,
+        maxlength: 255,
     }
 }));
 
-const validateItem = (item) => {
+function validateItem(item) {
     const schema = Joi.object({
         name: Joi.string().min(5).max(50).required(),
         description: Joi.string().min(5).max(255).required(),
-        date: Joi.date().required()
+        date: Joi.string().required(),
+        email: Joi.string().min(5).max(255).required()
     });
     return schema.validate(item);
 }

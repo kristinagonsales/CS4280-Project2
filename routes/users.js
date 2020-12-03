@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
     const { error } = validate(req.body);
+    console.log(req.body.name);
     
     if (error) {
         console.log(error.details[0].message);
@@ -32,4 +33,3 @@ router.post('/', async (req, res) => {
 });
 
 module.exports = router;
-//exports.router = router;

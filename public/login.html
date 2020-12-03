@@ -15,23 +15,26 @@
 				<ul>
 					<li><a href="index.html">Home</a></li>
 					<li><a href="about.html">About</a></li>
-					<li><a href="">Login</a></li>
+					<li><a href="login.html">Login</a></li>
 					<li><a href="signup.html">Signup</a></li>
 				</ul>
 			</nav>
-        </header>
-    </div>
-    <div class = "wrapper">
-        <div class = "inputForm">
-            <form action = "/auth" method = "POST">
-                <label for = "email">Email:</label>
-                <input type = "text" id = "email" name = "email">
-                <label for = "password">Password:</label>
-                <input type = "password" id = "password" name = "password">
-                <input type = "submit" value = "submit" class = "button">
-            </form>
-        </div>
-    </div>
+		</header>
+		<div class="loginsignupContainer">
+			<form action="/auth" method="post">
+				<p class="Greeting">Login</p>
+				<div class="loginsignupForm">
+					<label class="input">Email
+						<br/><input type="email" name="email" placeholder="Email address" required="required"/>
+					</label><br/>
+					<label class="input">Password
+						<br/><input type="password" name="password" placeholder="Password" required="required"/>
+					</label><br/>
+					<input id="submit" type="submit" value="Login"/>
+				</div><!--loginsignupForm-->
+			</form>
+		</div><!--loginsignupContainer-->
+	</div><!--wrapper-->
     <script src="index.js"></script>
 </body>
 </html>

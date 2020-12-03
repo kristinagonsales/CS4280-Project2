@@ -29,18 +29,29 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/all', async (req, res) => {
-    let items = await Item.find({ email: req.body.email }).sort({ date: -1 }).exec();
-    res.send(items);
+    if (req.session.user) {
+        console.log(req.session.user);
+        let items = await Item.find({ email: req.session.user.email }, { _id: 0, email: 0, __v: 0 }).sort({ date: -1 }).exec();
+        
+        //res.redirect('/items.html');
+        console.log(items);
+        console.log('something');
+        res.send(items);    
+    }
+    //res.redirect('/login.html');
 });
 
 router.put('/update/:itemId', async (req, res) => {
-    await Item.findByIdAndUpdate(req.params.itemId, { name: req.body.name, description: req.body.description, date: req.body.date }, { omitUndefined: true, new: true }, (err, result) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.send(result);
-        }
-    }).exec();
+    if (req.session.user) {
+        await Item.findByIdAndUpdate(req.params.itemId, { name: req.body.name, description: req.body.description, date: req.body.date }, { omitUndefined: true, new: true }, (err, result) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(result);
+            }
+        }).exec();
+    }
+    res.redirect('/login.html');
 });
 
 module.exports = router;

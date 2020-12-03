@@ -1,5 +1,5 @@
 body {
-	font-family: 'Raleway';
+	font-family: Raleway;
 	padding-left: 70px;
 	padding-right: 70px;
 	padding-top: 5px;
@@ -39,6 +39,8 @@ a:link, a:visited {
 		flex-basis: 50%;
 	}
 }
+
+/* homepage css */
 .getStarted {
 	display: flex;
 }
@@ -56,14 +58,19 @@ a:link, a:visited {
 	font-size: 120%;
 	font-weight: 600;
 	color: white;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	padding-left: 35%;
-	padding-right: 35%;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 38%;
+	padding-right: 38%;
 	background-color: #FFC957;
 	border: none;
 	display: inline-flex;
 	text-align: center;
+	border: 1px solid #F0B028;
+	border-bottom: 2px solid #F0B028;
+}
+.getStarted .content .button:hover {
+  background-color: #F0B028;
 }
 .button1 {border-radius: 8px;}
 
@@ -88,4 +95,50 @@ a:link, a:visited {
 	.getStarted .homepageImage {
 		flex-basis: 50%;
 	}
+}
+
+/* login and sign up styles */
+.loginsignupContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 75vh;
+	
+}
+.loginsignupContainer .Greeting {
+	text-align: center;
+	font-size: 300%;
+	font-weight: 800;
+	color: #000000;
+}
+.loginsignupContainer .loginsignupForm {
+	margin-right: 175px;
+}
+.loginsignupContainer .input {
+	font-size: 90%;
+	font-weight: 600;
+	color: #696969;
+}
+.loginsignupContainer .input input {
+	border-radius: 6px;
+	border: 1px solid #707070;
+	width: 200%;
+	padding: 5px;
+	margin: 10px 0;
+}
+.loginsignupContainer #submit {
+	font-size: 90;
+	font-weight: 600;
+	background-color: #FFC957;
+	color: white;
+	border: 1px solid #F0B028;
+	border-bottom: 2px solid #F0B028;
+	text-align: center;
+	width: 210%;
+	margin-top: 10px;
+	padding: 5px;
+	border-radius: 6px;
+}
+.loginsignupContainer #submit:hover {
+  background-color: #F0B028;
 }

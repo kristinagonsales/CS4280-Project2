@@ -5,7 +5,6 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-    console.log('anything');
     //validate HTTP request
     const { error } = validate(req.body);
     if (error) {
@@ -24,7 +23,9 @@ router.post('/', async (req, res) => {
         return res.status(400).send('Incorrect email or password');
     }
 
-    res.send(true);
+    req.session.user = user;
+    req.session.save();
+    res.redirect('/items.html');
 });
 
 const validate = (req) => {

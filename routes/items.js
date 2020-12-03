@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const { Item } = require('../models/item');
+const { Item, validate } = require('../models/item');
 const express = require('express');
 const router = express.Router();
 
@@ -20,11 +20,27 @@ router.post('/', async (req, res) => {
         item = new Item({
             name: req.body.name,
             description: req.body.description,
-            date: req.body.date
+            date: req.body.date,
+            email: req.body.email
         });
         await item.save();
         res.send(item);
     }
+});
+
+router.get('/all', async (req, res) => {
+    let items = await Item.find({ email: req.body.email }).sort({ date: -1 }).exec();
+    res.send(items);
+});
+
+router.put('/update/:itemId', async (req, res) => {
+    await Item.findByIdAndUpdate(req.params.itemId, { name: req.body.name, description: req.body.description, date: req.body.date }, { omitUndefined: true, new: true }, (err, result) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(result);
+        }
+    }).exec();
 });
 
 module.exports = router;

@@ -5,7 +5,7 @@
 <!-- css style references here --> 
 <link href="styles.css" type="text/css" rel="stylesheet" />
 <!-- Raleway font -->
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway" />
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap" />
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
@@ -26,9 +26,12 @@
     <script>
         $( () => {
             $.get("/items/all", (items) => {
+                
                 let list = document.createElement("ul");
                 for (let i = 0; i < items.length; i++) {
+                    let itemDiv = document.createElement("div");
                     let li = document.createElement("li");
+
                     let subList = document.createElement("ul");
                     let nameLi = document.createElement("li");
                     let descLi = document.createElement("li");
@@ -42,7 +45,15 @@
                     subList.append(descLi);
                     subList.append(dateLi);
 
-                    li.append(subList);
+                    
+                    itemDiv.append(subList);
+                    let updateButton = document.createElement("button");
+                    let removeButton = document.createElement("button");
+                    updateButton.innerHTML = "Update Item";
+                    removeButton.innerHTML = "Remove Item";
+                    itemDiv.append(updateButton);
+                    itemDiv.append(removeButton);
+                    li.append(itemDiv);
                     list.append(li);
                 }
                 let itemGroup = document.getElementById('itemGroup');

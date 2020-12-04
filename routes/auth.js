@@ -25,7 +25,7 @@ router.post('/', async (req, res) => {
 
     req.session.user = user;
     req.session.save();
-    res.redirect('/items.html');
+    res.redirect('/list.html');
 });
 
 const validate = (req) => {

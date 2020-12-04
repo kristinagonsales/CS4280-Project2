@@ -1,0 +1,324 @@
+body {
+	font-family: Raleway;
+	padding-left: 70px;
+	padding-right: 70px;
+	padding-top: 5px;
+	}
+.navbar {
+	display: flex;
+}
+header p {
+	flex: 1;
+	font-size: 100%;
+	font-weight: 600;
+	color: #000000;
+}
+nav ul {
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+}
+nav li {
+	display: inline-flex;
+	margin: 15px;
+}
+nav li a {
+	font-size: 100%;
+	font-weight: 600;
+	color: #000000;
+}
+a:link, a:visited {
+	text-decoration: none;
+}
+@media (max-width: 500px) {
+	.navbar {
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+	.navbar nav ul li {
+		flex-basis: 50%;
+	}
+}
+
+/* homepage css */
+.getStarted {
+	display: flex;
+}
+.getStarted .content {
+	margin: auto;
+	flex: 1;
+}
+.getStarted .content .OrganizeYourWay {
+	text-align: center;
+	font-size: 300%;
+	font-weight: 800;
+	color: #000000;
+}
+.getStarted .content .button {
+	font-size: 120%;
+	font-weight: 600;
+	color: white;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 38%;
+	padding-right: 38%;
+	background-color: #FFC957;
+	border: none;
+	display: inline-flex;
+	text-align: center;
+	border: 1px solid #F0B028;
+	border-bottom: 2px solid #F0B028;
+}
+.getStarted .content .button:hover {
+  background-color: #F0B028;
+}
+.button1 {border-radius: 8px;}
+
+.getStarted .homepageImage {
+	flex: 2;
+}
+.getStarted .homepageImage img {
+	max-width: 100%;
+	height: auto;
+}
+
+@media (max-width: 870px) {
+	.getStarted {
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+	.getStarted .content {
+		flex-basis: 50%;
+		order: 1;
+	}
+
+	.getStarted .homepageImage {
+		flex-basis: 50%;
+	}
+}
+
+/* login and sign up styles */
+.loginsignupContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 75vh;
+	
+}
+.loginsignupContainer .Greeting {
+	text-align: center;
+	font-size: 300%;
+	font-weight: 800;
+	color: #000000;
+}
+.loginsignupContainer .loginsignupForm {
+	margin-right: 175px;
+}
+.loginsignupContainer .input {
+	font-size: 90%;
+	font-weight: 600;
+	color: #696969;
+}
+.loginsignupContainer .input input {
+	border-radius: 6px;
+	border: 1px solid #707070;
+	width: 200%;
+	padding: 5px;
+	margin: 10px 0;
+}
+.loginsignupContainer #submit {
+	font-size: 90;
+	font-weight: 600;
+	background-color: #FFC957;
+	color: white;
+	border: 1px solid #F0B028;
+	border-bottom: 2px solid #F0B028;
+	text-align: center;
+	width: 210%;
+	margin-top: 10px;
+	padding: 5px;
+	border-radius: 6px;
+}
+.loginsignupContainer #submit:hover {
+  background-color: #F0B028;
+}
+
+/* dashboard for when logged in */
+.viewYourLists {
+	display: flex;
+	flex-direction: column;
+	align-content: flex-start;
+}
+.viewYourLists .content2 {
+	margin: auto;
+	flex: 1;
+	padding-right: 0 10px 10px 0;
+}
+.viewYourLists .content2 .StartOrganizing {
+	text-align: center;
+	font-size: 300%;
+	font-weight: 800;
+	color: #000000;
+}
+.viewYourLists .content2 .listButton {
+	font-size: 120%;
+	font-weight: 600;
+	color: white;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 31%;
+	padding-right: 31%;
+	background-color: #FFC957;
+	border: none;
+	display: inline-flex;
+	text-align: center;
+	border: 1px solid #F0B028;
+	border-bottom: 2px solid #F0B028;
+	border-radius: 8px;
+}
+.viewYourLists .content2 .listButton:hover {
+  background-color: #F0B028;
+}
+
+.viewYourLists .dashboardImage {
+	flex: 1;
+	justify-content: center;
+	display: inline-flex;
+}
+@media (min-width: 850px) {
+	.viewYourLists {
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+	.viewYourLists .content2 {
+		flex-basis: 50%;
+		order: 1;
+	}
+	.viewYourLists .dashboardImage {
+		flex-basis: 50%;
+	}
+	.viewYourLists .dashboardImage img {
+		max-width: 43%;
+		height: auto;
+	}
+}
+@media (max-width: 849px) {
+	.viewYourLists {
+		flex-wrap: wrap;
+		flex-direction: column;
+	}
+	.viewYourLists .content2 {
+		flex-basis: 50%;
+		order: 1;
+	}
+	.viewYourLists .dashboardImage {
+		flex-basis: 50%;
+	}
+	.viewYourLists .dashboardImage img {
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+/* list page */
+.ListContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 75vh;
+
+}
+.ListContainer .Greeting {
+	text-align: center;
+	font-size: 300%;
+	font-weight: 800;
+	color: #000000;
+}
+.ListContainer .listItemsAll {
+	padding: 10px 40px 20px 20px;	
+	border-radius: 8px;
+	display: flex;
+}
+.ListContainer .listItems {
+	font-size: 90%;
+	font-weight: 600;
+	color: #000000;
+}
+.ListContainer .listItems .collapsible {
+  	background-color: white;
+  	color: #696969;
+  	cursor: pointer;
+  	padding: 18px;
+  	border: none;
+  	text-align: left;
+  	outline: none;
+  	font-size: 90%;
+  	font-weight: 600;
+}
+.ListContainer .listItems .active, .collapsible:hover {
+  	background-color: white;
+}
+.ListContainer .listItems .collapsibleContent {
+	padding-right: 200px;
+	padding-left: 10px;
+  	display: none;
+  	overflow: hidden;
+  	background-color: #FFC957;
+  	font-size: 90%;
+  	font-weight: 600;
+  	color: #ffffff;
+  	margin: auto;
+}
+.ListContainer .addFieldset {
+	padding: 10px 40px 20px 20px;	
+	border-radius: 8px;
+}
+.ListContainer legend {
+	font-size: 90%;
+	font-weight: 600;
+	color: #000000;
+}
+.ListContainer .addItemForm {
+	margin-right: 175px;
+}
+.ListContainer .input {
+	font-size: 90%;
+	font-weight: 600;
+	color: #696969;
+}
+.ListContainer .input input {
+	border-radius: 6px;
+	border: 1px solid #707070;
+	width: 200%;
+	padding: 5px;
+	margin: 10px 0;
+}
+.ListContainer .textareaInput {
+	font-size: 90%;
+	font-weight: 600;
+	color: #696969;
+}
+.ListContainer textarea {
+	border-radius: 6px;
+	border: 1px solid #707070;
+	width: 200%;
+	padding: 5px;
+	padding-bottom: 20px;
+	margin: 10px 0;
+}
+.ListContainer #submit {
+	font-size: 90;
+	font-weight: 600;
+	background-color: #FFC957;
+	color: white;
+	border: 1px solid #F0B028;
+	border-bottom: 2px solid #F0B028;
+	text-align: center;
+	width: 210%;
+	margin-top: 10px;
+	padding: 5px;
+	border-radius: 6px;
+}
+.ListContainer #submit:hover {
+  background-color: #F0B028;
+}

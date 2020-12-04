@@ -23,7 +23,9 @@ router.post('/', async (req, res) => {
         return res.status(400).send('Incorrect email or password');
     }
 
-    res.send(true);
+    req.session.user = user;
+    req.session.save();
+    res.redirect('/list.html');
 });
 
 const validate = (req) => {

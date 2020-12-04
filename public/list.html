@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> To-Do List</title>
+<!-- css style references here --> 
+<link href="styles.css" type="text/css" rel="stylesheet" />
+<!-- Raleway font -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap" /> 
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<header class="navbar">
+			<p>To-Do List</p>
+			<nav>
+				<ul>
+					<li><a href="dashboard.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+					<li><a href="list.html">List</a></li>
+					<li><a href="index.html">Logout</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div class="ListContainer">
+				<p class="Greeting">Your To-Do's</p>
+				<fieldset class="listItemsAll">
+					<div id="listItems">
+                        <!-- This is where items will populate -->
+					</div><!--listItems-->
+				</fieldset>
+				<fieldset class="addFieldset">
+					<legend>Add Item</legend>
+					<div class="addItemForm">
+                        <form action = "/items" method = "post">
+                            <label class="input">Item Name:
+                                <br/><input type="text" name="name" placeholder="Item Name" required="required"/>
+                            </label><br/>
+                            <label class="textareaInput">Item Description:
+                                <br/><textarea name="description"></textarea>
+                            </label><br/>
+                            <label class="textareaInput">Due Date:
+                                <br/><textarea name="date"></textarea>
+                            </label><br/>
+                            <input id="submit" type="submit" value="Add Item"/>
+                        </form>
+					</div><!--addItemForm-->
+				</fieldset>
+		</div><!--ListContainer-->
+    </div><!--wrapper-->
+    <script>
+         $( () => {
+            $.get("/items/all", (items) => {
+                let list = document.getElementById("listItems");
+                for(let i = 0; i < items.length; i++) {
+                    let nameBtn = document.createElement("button");
+                    nameBtn.type = "button";
+                    nameBtn.classList.add("collapsible");
+                    nameBtn.textContent = items[i].name;
+
+                    let collapseDiv = document.createElement("div");
+                    collapseDiv.classList.add("collapsibleContent");
+
+                    let descP = document.createElement("p");
+                    descP.textContent = items[i].description;
+                    let dateP = document.createElement("p");
+                    dateP.textContent = items[i].date;
+
+                    collapseDiv.append(descP);
+                    collapseDiv.append(dateP);
+
+                    let br = document.createElement("br");
+
+                    let updateBtn = document.createElement("button");
+                    updateBtn.type = "button";
+                    updateBtn.textContent = "Update Item";
+                    updateBtn.name = items[i]['_id'];
+                    updateBtn.classList.add("editBtn");
+                    updateBtn.classList.add("updateBtn");
+                    let removeBtn = document.createElement("button");
+                    removeBtn.type = "button";
+                    removeBtn.textContent = "Remove Item";
+                    removeBtn.name = items[i]['_id'];
+                    removeBtn.classList.add("editBtn");
+                    removeBtn.classList.add("removeBtn");
+
+                    collapseDiv.append(updateBtn);
+                    collapseDiv.append(removeBtn);
+
+                    list.append(nameBtn);
+                    list.append(collapseDiv);
+                    list.append(br);
+                }
+                const coll = document.getElementsByClassName("collapsible");
+                for (let j = 0; j < coll.length; j++) {
+                    coll[j].addEventListener("click", function() {
+                        this.classList.toggle("active");
+                        let content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                        } else {
+                            content.style.display = "block";
+                        }
+                    });
+                }
+
+                const editButtonList = document.getElementsByClassName("editBtn");
+                for (let k = 0; k < editButtonList.length; k++) {
+                    if(editButtonList[k].classList.contains("updateBtn")) {
+                        editButtonList[k].addEventListener("click", () => {
+
+                        });
+                    } else {
+                        editButtonList[k].addEventListener("click", () => {
+                            console.log(editButtonList[k].name);
+                            $.get('items/remove/' + editButtonList[k].name);
+                        });
+                    }
+                }
+
+            });
+
+            
+        });
+
+        
+    </script>
+</body>
+</html>

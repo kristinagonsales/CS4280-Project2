@@ -5,6 +5,7 @@ const router = express.Router();
 
 router.post('/', async (req, res) => {
     const { error } = validate(req.body);
+    console.log(req.body.name);
     
     if (error) {
         console.log(error.details[0].message);
@@ -27,9 +28,9 @@ router.post('/', async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         user.password = await bcrypt.hash(user.password, salt);
         await user.save();
-        res.send(user);
+        req.session.user = user.dataValues;
+        res.redirect('items.html');
     }
 });
 
 module.exports = router;
-//exports.router = router;

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> To-Do List</title>
+<!-- css style references here --> 
+<link href="styles.css" type="text/css" rel="stylesheet" />
+<!-- Raleway font -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;800&display=swap" />
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<header class="navbar">
+			<p>To-Do List</p>
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About</a></li>
+				</ul>
+			</nav>
+        </header>
+        <div id = "itemGroup">
+            
+        </div>
+    </div>
+    <script>
+        $( () => {
+            $.get("/items/all", (items) => {
+                
+                let list = document.createElement("ul");
+                for (let i = 0; i < items.length; i++) {
+                    let itemDiv = document.createElement("div");
+                    let li = document.createElement("li");
+
+                    let subList = document.createElement("ul");
+                    let nameLi = document.createElement("li");
+                    let descLi = document.createElement("li");
+                    let dateLi = document.createElement("li");
+
+                    nameLi.innerHTML = JSON.stringify(items[i].name);
+                    descLi.innerHTML = JSON.stringify(items[i].description);
+                    dateLi.innerHTML = JSON.stringify(items[i].date);
+
+                    subList.append(nameLi);
+                    subList.append(descLi);
+                    subList.append(dateLi);
+
+                    
+                    itemDiv.append(subList);
+                    let updateButton = document.createElement("button");
+                    let removeButton = document.createElement("button");
+                    updateButton.innerHTML = "Update Item";
+                    removeButton.innerHTML = "Remove Item";
+                    itemDiv.append(updateButton);
+                    itemDiv.append(removeButton);
+                    li.append(itemDiv);
+                    list.append(li);
+                }
+                let itemGroup = document.getElementById('itemGroup');
+                itemGroup.append(list);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -223,18 +223,22 @@ a:link, a:visited {
 /* list page */
 .ListContainer {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	min-height: 75vh;
 
 }
 .ListContainer .Greeting {
+	flex-basis: 100%;
 	text-align: center;
 	font-size: 300%;
 	font-weight: 800;
 	color: #000000;
 }
 .ListContainer .listItemsAll {
+	order: 1;
+	flex-basis: 100%;
 	padding: 10px 40px 20px 20px;	
 	border-radius: 8px;
 	display: flex;
@@ -270,15 +274,31 @@ a:link, a:visited {
   	margin: auto;
 }
 .ListContainer .addFieldset {
+	flex-basis: 45%;
+	order: 1;
 	padding: 10px 40px 20px 20px;	
 	border-radius: 8px;
 }
-.ListContainer legend {
+.ListContainer .addFieldset legend {
 	font-size: 90%;
 	font-weight: 600;
 	color: #000000;
 }
 .ListContainer .addItemForm {
+	margin-right: 175px;
+}
+.ListContainer .updateFieldset {
+	flex-basis: 45%;
+	order: 2;
+	padding: 10px 40px 20px 20px;	
+	border-radius: 8px;
+}
+.ListContainer .updateFieldset legend {
+	font-size: 90%;
+	font-weight: 600;
+	color: #000000;
+}
+.ListContainer .updateItemForm {
 	margin-right: 175px;
 }
 .ListContainer .input {
@@ -289,7 +309,7 @@ a:link, a:visited {
 .ListContainer .input input {
 	border-radius: 6px;
 	border: 1px solid #707070;
-	width: 200%;
+	width: 130%;
 	padding: 5px;
 	margin: 10px 0;
 }
@@ -301,10 +321,15 @@ a:link, a:visited {
 .ListContainer textarea {
 	border-radius: 6px;
 	border: 1px solid #707070;
-	width: 200%;
+	width: 130%;
 	padding: 5px;
 	padding-bottom: 20px;
 	margin: 10px 0;
+}
+.listContainer .dateInput {
+	font-size: 90%;
+	font-weight: 600;
+	color: #696969;
 }
 .ListContainer #submit {
 	font-size: 90;
@@ -314,7 +339,7 @@ a:link, a:visited {
 	border: 1px solid #F0B028;
 	border-bottom: 2px solid #F0B028;
 	text-align: center;
-	width: 210%;
+	width: 132%;
 	margin-top: 10px;
 	padding: 5px;
 	border-radius: 6px;

@@ -38,13 +38,30 @@
                             <label class="textareaInput">Item Description:
                                 <br/><textarea name="description"></textarea>
                             </label><br/>
-                            <label class="textareaInput">Due Date:
-                                <br/><textarea name="date"></textarea>
+                            <label class="dateInput">Due Date:
+                                <br/><input id="dateInputPicker" type="date" name="date"/>
                             </label><br/>
                             <input id="submit" type="submit" value="Add Item"/>
                         </form>
-					</div><!--addItemForm-->
-				</fieldset>
+                    </div><!--addItemForm-->
+                </fieldset>
+                <fieldset class="updateFieldset">
+                    <legend>Update Item</legend>
+                    <div class="updateItemForm">
+                        <form action = "/items" method = "post">
+                            <label class="input">Item Name:
+                                <br/><input type="text" name="name" placeholder="Item Name" required="required"/>
+                            </label><br/>
+                            <label class="textareaInput">Item Description:
+                                <br/><textarea name="description"></textarea>
+                            </label><br/>
+                            <label class="dateInput">Due Date:
+                                <br/><input id="dateInputPicker" type="date" name="date"/>
+                            </label><br/>
+                            <input id="submit" type="submit" value="Add Item"/>
+                        </form>
+					</div><!--updateItemForm-->
+                </fieldset>
 		</div><!--ListContainer-->
     </div><!--wrapper-->
     <script>
